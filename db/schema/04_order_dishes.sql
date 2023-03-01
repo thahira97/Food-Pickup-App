@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS order_dishes CASCADE;
+CREATE TABLE order_dishes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  dish_id INTEGER REFERENCES dishes(id) NOT NULL,
+  order_id INTEGER REFERENCES orders(id) NOT NULL ,
+  quantity INTEGER NOT NULL
+);
