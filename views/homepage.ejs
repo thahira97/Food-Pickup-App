@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maestro Pizza</title>
+  
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/homepage.css" />
+
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+
+</head>
+
+<body>
+   <%- include('partials/_header') %>
+  <main class = "main-container">
+    <div class="pizzavideo">
+      <video controls autoplay muted loop>
+        <source src="/images/Pizza-video.mp4"  type="video/mp4" />
+        <source src="/images/Pizza-video.WebM"  type="video/mp4" />
+      </video>
+    </div>
+  <div class="about-container" id="nav-1">
+    <aside class="about-text">
+      <h2  >About us</h2>
+    <p class = "about-us"> <h4>We are dedicated to bringing you an unparalleled culinary experience with our artisanal pizza creations.</h4>
+       <h4>Our pizzas are crafted with the highest quality ingredients, including locally sourced produce, authentic Italian cheeses, and premium meats.</h4> Each pizza is carefully handcrafted and cooked to perfection in our state-of-the-art wood-fired oven, ensuring a crispy crust and delicious toppings in every bite.</p>
+    </aside>
+    <img class="about-img"src="/images/Aboutus-img.jpg" width="550px">
+  </div>
+   <div class="reviews-container">
+       <img src="/images/Feedback-img.jpg" width="600px" height="300px"/>
+       <aside class="reviews">
+        <h2>Reviews from the Experts</h2>
+        <h4>Chef Linguini ::
+        <span>"I love pizza! It's definitely my guilty pleasure.It's just so satisfying and delicious!"</span></h4>
+        <h4>Chef Gordon Ramsay ::
+        <span>" My favorite type of pizza is a classic Margherita with fresh basil and mozzarella."</span></h4>
+        <h4>Chef Sandeep ::
+        <span>"I'm a big fan of thin crust pizza with lots of veggies and maybe some chicken or shrimp"</span></h4>
+       </aside>
+      </div>
+  <div class="contact-container" id="nav-2">
+    <span class="contact">
+    <h1 >Contact us</h1>
+    <p>
+      info@maestropizza.com
+    </p>
+    <p>
+      412-889-7766
+    </p>
+    <h4>Opening-Hours</h4>
+    <p>
+      9.00 AM - 9.00 PM Daily
+    </p>
+    <h4>Location</h4>
+    <p>
+     925 Rathburn Rd,
+    </p>
+    <p>
+      Toronto,
+    </p>
+    <p>
+      ON
+    </p>
+    <p>
+      905(277)-9797
+    </p>
+    </span>
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="447" height="399" id="gmap_canvas" src="https://maps.google.com/maps?q=925,Ratburn%20rd&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-i.net"></a><br><style>.mapouter{position:relative;text-align:right;height:399px;width:447px;}</style><a href="https://www.embedgooglemap.net">create google map for website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:399px;width:447px;}</style></div></div>
+  </div>
+  </main>
+  <%- include('partials/_footer') %>
+</body>
+</html>
