@@ -50,3 +50,9 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .rounded-button:hover {
   background-color: black;
 }
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
