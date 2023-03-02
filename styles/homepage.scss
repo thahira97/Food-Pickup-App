@@ -1,0 +1,49 @@
+.main-container {
+  width: 100%;
+}
+.pizzavideo {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.pizzavideo video {
+  width: 100%;
+  height: auto;
+}
+.about-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 90px;
+}
+.about-text{
+  width: 50%;
+  font-family:fantasy;
+  font-size: larger;
+
+}
+.about-img {
+  margin-right: 50px;
+  padding-left: 30px;
+}
+.reviews-container {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 50px;
+  justify-content: space-between;
+}
+.reviews {
+  width: 50%;
+  font-family: fantasy;
+  font-size: larger;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 30px;
+  margin-left:100px;
+}
+
