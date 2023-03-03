@@ -6,13 +6,23 @@ $(document).ready(function () {
     let currentValue = parseInt(input.val());
     let newValue = currentValue + 1;
     input.val(newValue);
+    // console.log(input.val())
   });
   $(".decrement").click(function () {
     const input = $(this).siblings("input");
     let currentValue = parseInt(input.val());
-    if (currentValue !== 0) {
+    if (currentValue >= 2 ) {
       let newValue = currentValue - 1;
       input.val(newValue);
     }
   });
+  $(".add-order-btn").click(function() {
+  const $price = $(this).parent().find("#dish-price").text();
+  console.log($price);
+
+  })
+
+
+
+
 });
