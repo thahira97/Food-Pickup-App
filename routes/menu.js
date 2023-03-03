@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../db/connection");
+const {getMenu} = require("../db/queries/menu");
 
 router.get("/", (req, res) => {
-  db
-   .query(`SELECT * FROM dishes;`)
-   .then((response) => {
-    console.log(response.rows)
-    res.render("menu", {dishes : response.rows});
-  });
+  getMenu()
+    .then((response) => {
+      res.render("menu", {dishes : response.rows});
+  })
+     .catch(err => {
+        res.status(500)
+     })
 });
-
 module.exports = router;

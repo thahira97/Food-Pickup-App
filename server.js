@@ -48,6 +48,7 @@ app.get('/restaurant', (req, res) => {
 // Note: mount other resources here, using the same pattern above
 app.use('/menu', menuRoutes);
 
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
