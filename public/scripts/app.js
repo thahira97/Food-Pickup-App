@@ -22,5 +22,8 @@ $(document).ready(function () {
 
     const $title = $(this).parent().parent().find("#dish-title").text();
     console.log($title);
+
+    const $quantity = $(this).siblings().children().find("#quantity").val();
+    console.log($quantity);
   });
 });
