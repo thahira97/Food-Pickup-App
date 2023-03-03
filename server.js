@@ -10,7 +10,8 @@ const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
