@@ -21,7 +21,9 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+
+  </header>
 
   <main>
 
@@ -36,16 +38,18 @@
         <h3 class="category">Pizzas</h3>
 
         <div class="dishes">
+          <% for (const dish of dishes) { %>
+            <% if (dish.category === "Pizzas") { %>
           <div class="card">
-            <img class="card-img-top" src="images/Grilled_Chicken_Arabiatta.jpg" alt="">
+            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
             <div class="card-body">
-              <h5 class="card-title">Grilled Chicken Arabiata</h5>
-              <p class="card-text">Seasoned grilled chicken breast, green pepper, roasted red pepper, red onion, pesto marinated tomato, chili flakes and pizza mozzarella</p>
+              <h5 class="card-title"><%= dish.title %></h5>
+              <p class="card-text"><%= dish.description %></p>
             </div>
             <div class="card-footer">
               <div class="dish-price-qty">
                 <div class="price">
-                  <span><strong>$35.00</strong></span>
+                  <span><strong>$<%= dish.price %></strong></span>
                 </div>
                 <div class="quantity">
                   <div class="input-group">
@@ -58,70 +62,26 @@
               <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
             </div>
           </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Chicken_Caeser.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Chicken Caesar</h5>
-              <p class="card-text">Alfredo sauce, seasoned grilled chicken breast, bacon crumble, roasted garlic, parmesan and pizza mozzarella</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$35.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Chicken_Fajita.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Chicken Fajita</h5>
-              <p class="card-text">Tomato Sauce, Spiced Chicken, Premium Cheese Mix, Green Pepper, Red Pepper, Onion, Jalapeno, Fajita Sauce</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$35.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-        </div>
+          <% } %>
+           <% } %>
       </section>
 
       <section class="menu-category">
         <h3 class="category">Sides</h3>
 
         <div class="dishes">
+          <% for (const dish of dishes) { %>
+            <% if (dish.category === "Sides") { %>
           <div class="card">
-            <img class="card-img-top" src="images/French_Fries.jpg" alt="">
+            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
             <div class="card-body">
-              <h5 class="card-title">French Fries</h5>
-              <p class="card-text">Crispy fried potato chips with dip</p>
+              <h5 class="card-title"><%= dish.title %></h5>
+              <p class="card-text"><%= dish.description %></p>
             </div>
             <div class="card-footer">
               <div class="dish-price-qty">
                 <div class="price">
-                  <span><strong>$10.00</strong></span>
+                  <span><strong>$<%= dish.price %></strong></span>
                 </div>
                 <div class="quantity">
                   <div class="input-group">
@@ -134,31 +94,8 @@
               <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
             </div>
           </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Onion_Rings.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Onion Rings</h5>
-              <p class="card-text">Crispy fried freshly cut onion rings with dip</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$10.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-        </div>
+          <% } %>
+           <% } %>
       </section>
     </section>
 
