@@ -33,17 +33,17 @@ $(document).ready(function () {
 
   ///Function to create html of the orderitem
   const createOrderItem = function (orderItem) {
-    let $order = `<div class="order-list-item">
-    <div class="order-item">
-      <i class="bi bi-${orderItem.quantity}-circle-fill item-count"></i> ${
-      orderItem.title
-    }
-    </div>
-    <div class="order-price">
-     <span>$<strong>${parseFloat(orderItem.price).toFixed(
-       2
-     )}</strong></span> <button type="button" class="btn btn-link delete-item-btn"><i class="bi bi-trash3"></i></button>
-    </div>
+    let $order = `
+    <div class="order-list-item">
+      <div class="order-item">
+       <i class="bi bi-${orderItem.quantity}-circle-fill item-count" id="item-name"></i> ${orderItem.title}
+      </div>
+      <div class="order-price">
+       <span>$<strong >${parseFloat(orderItem.price).toFixed(2)}</strong>
+       </span>
+       <button type="button" class="btn btn-link delete-item-btn"         id="delete-button"><i class="bi bi-trash3" ></i>
+       </button>
+      </div>
   </div>`;
     return $order;
   };
@@ -120,7 +120,18 @@ $(document).ready(function () {
       .parent()
       .parent()
       .find("#total-button");
-    console.log($totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `));
+    // console.log($totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `));
     addTotal(orderList);
+  });
+
+  ///Delete button to delete the order
+  // const $delete = $("#order-container").find("#delete-button")
+  // console.log("deleteereree", $delete)
+
+  ///To take the delete button from dynamically rendered code
+  $(document).on("click", "#delete-button", function () {
+    console.log($(this).parent().siblings(".order-item").text().trim())
+    const $itemName = $(this).parent().siblings(".order-item").text().trim()
+
   });
 });
