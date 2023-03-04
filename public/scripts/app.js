@@ -48,7 +48,6 @@ $(document).ready(function () {
     return $order;
   };
 
-
   ////Function to render the orderlist html on the order summary
 
   const renderOrderList = function () {
@@ -60,6 +59,15 @@ $(document).ready(function () {
       $orderItemHtml += createOrderItem(order);
     }
     $orderContainer.html($orderItemHtml);
+  };
+
+  ////Function to add the total amount in order
+  const addTotal = function (orderList) {
+    let sum = 0;
+    for (const item of orderList) {
+      sum += item.price;
+    }
+    return sum;
   };
 
   ////For increment button
@@ -97,8 +105,21 @@ $(document).ready(function () {
       price: $price,
     };
 
-  addOrderItem(orderList, orderItem);
-  renderOrderList(orderList);
+    //Set the input value to 1
+    $(this).siblings().children().find("#quantity").val(1);
 
+    addOrderItem(orderList, orderItem);
+    renderOrderList(orderList);
+
+    const $totalButton = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .find("#total-button");
+    console.log($totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `));
+    addTotal(orderList);
   });
 });
