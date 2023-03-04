@@ -12,10 +12,10 @@ INSERT INTO dishes (title, description, price, image_url, category)
 VALUES('Soprano', 'Ripe tomato, red onion, black olives, feta cheese and Pizza mozzarella', 20, '/images/Soprano.jpg','Pizzas' );
 
 INSERT INTO dishes (title, description, price, image_url, category)
-VALUES('French_Fries', 'Crispy fried potato chips with dip' , 10,'images/French_Fries.jpg', 'Sides');
+VALUES('French Fries', 'Crispy fried potato chips with dip' , 10,'images/French_Fries.jpg', 'Sides');
 
 INSERT INTO dishes (title, description, price, image_url, category)
-VALUES('Onion_Rings', 'Crispy fried freshly cut onion rings with dip' , 10, '/images/Onion_Rings.jpg','Sides' );
+VALUES('Onion Rings', 'Crispy fried freshly cut onion rings with dip' , 10, '/images/Onion_Rings.jpg','Sides' );
 
 INSERT INTO dishes (title, description, price, image_url, category)
 VALUES('Spicy Wings', 'Spicy Chicken Wings dipped in hot buffalo sauce' , 20, '/images/Spicy_wings.jpg','Sides' );
