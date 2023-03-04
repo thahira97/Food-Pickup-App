@@ -31,6 +31,23 @@ $(document).ready(function () {
     }
   };
 
+  ///Function to create html of the orderitem
+  const createOrderItem = function (orderItem) {
+    let $order = `<div class="order-list-item">
+    <div class="order-item">
+      <i class="bi bi-${orderItem.quantity}-circle-fill item-count"></i> ${
+      orderItem.title
+    }
+    </div>
+    <div class="order-price">
+     <span>$<strong>${parseFloat(orderItem.price).toFixed(
+       2
+     )}</strong></span> <button type="button" class="btn btn-link delete-item-btn"><i class="bi bi-trash3"></i></button>
+    </div>
+  </div>`;
+    return $order;
+  };
+  
   ////For increment button
   $(".increment").click(function () {
     const input = $(this).siblings("input");
