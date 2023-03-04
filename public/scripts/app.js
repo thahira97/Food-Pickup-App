@@ -47,7 +47,21 @@ $(document).ready(function () {
   </div>`;
     return $order;
   };
-  
+
+
+  ////Function to render the orderlist html on the order summary
+
+  const renderOrderList = function () {
+    // const orderList = getOrderList()
+    // console.log('EXISTING ORDERLIST FROM LOCAL STORAGE', orderList)
+    const $orderContainer = $("#order-container");
+    let $orderItemHtml = "";
+    for (const order of orderList) {
+      $orderItemHtml += createOrderItem(order);
+    }
+    $orderContainer.html($orderItemHtml);
+  };
+
   ////For increment button
   $(".increment").click(function () {
     const input = $(this).siblings("input");
@@ -84,7 +98,7 @@ $(document).ready(function () {
     };
 
   addOrderItem(orderList, orderItem);
-  console.log(addTotal(orderList))
+  renderOrderList(orderList);
 
   });
 });
