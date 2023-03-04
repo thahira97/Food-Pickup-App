@@ -111,6 +111,7 @@ $(document).ready(function () {
     addOrderItem(orderList, orderItem);
     renderOrderList(orderList);
 
+    ///Total button to display the sum of order
     const $totalButton = $(this)
       .parent()
       .parent()
