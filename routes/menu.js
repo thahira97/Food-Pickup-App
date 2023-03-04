@@ -2,9 +2,9 @@ const express = require('express');
 const router  = express.Router();
 
 router.get('/', (req, res) => {
-  console.log("RES",req.cookies);
+  console.log("RES",req.cookies.userId);
   if (!req.cookies.userId) {
-    res.render('homepage');
+    return res.status(401).send("Please log in to place an order");
   }
   res.render('menu');
 });
