@@ -76,18 +76,18 @@
           <div class="card">
             <img class="card-img-top" src="<%= dish.image_url %>" alt="">
             <div class="card-body">
-              <h5 class="card-title"><%= dish.title %></h5>
+              <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
               <p class="card-text"><%= dish.description %></p>
             </div>
             <div class="card-footer">
               <div class="dish-price-qty">
                 <div class="price">
-                  <span><strong>$<%= dish.price %></strong></span>
+                  <span>$<strong id="dish-price"><%= dish.price %></strong></span>
                 </div>
                 <div class="quantity">
                   <div class="input-group">
                     <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1" >
+                    <input type="text" class="form-control" id="quantity" value="1" >
                     <button class="btn btn-outline-secondary increment" type="button" id="button-addon2">+</button>
                   </div>
                 </div>
