@@ -126,10 +126,6 @@ $(document).ready(function () {
     addTotal(orderList);
   });
 
-  ///Delete button to delete the order
-  // const $delete = $("#order-container").find("#delete-button")
-  // console.log("deleteereree", $delete)
-
   ///To take the delete button from dynamically rendered code
   $(document).on("click", "#delete-button", function () {
     console.log($(this).parent().siblings(".order-item").text().trim());
@@ -146,4 +142,11 @@ $(document).ready(function () {
     $("#total-button").text(`Order now • $ ${addTotal(orderList)}.00 `);
     addTotal(orderList);
   });
+
+  ////POST request to send the  
+  $(document).on("click", "#total-button", function () {
+    console.log("CLICKED!!!!!")
+    $.post("/api/order/new", {orderList: orderList})
+  });
+
 });

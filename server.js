@@ -57,6 +57,11 @@ app.get('/', (req, res) => {
  res.render('homepage');
 });
 
+app.post("/api/order/new", (req, res) => {
+  const { orderList } = req.body;
+  console.log('from server.js', orderList)
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
