@@ -3,7 +3,7 @@ INSERT INTO dishes (title, description, price, image_url, category)
 VALUES('Grilled Chicken Arabiata', 'Seasoned grilled chicken breast, green pepper, roasted red pepper, red onion, pesto marinated tomato, chili flakes and pizza mozzarella', 25, '/images/Grilled_Chicken_Arabiatta.jpg', 'Pizzas' );
 
 INSERT INTO dishes (title, description, price, image_url, category)
-VALUES('Chicken Caesar ', 'Alfredo sauce, seasoned grilled chicken breast, bacon crumble, roasted garlic, parmesan and pizza mozzarella', 35, '/images/Chicken_Caeser.jpg', 'Pizzas' );
+VALUES('Chicken Caesar', 'Alfredo sauce, seasoned grilled chicken breast, bacon crumble, roasted garlic, parmesan and pizza mozzarella', 35, '/images/Chicken_Caeser.jpg', 'Pizzas' );
 
 INSERT INTO dishes (title, description, price, image_url, category)
 VALUES('Chicken Fajita', 'Tomato Sauce, Spiced Chicken, Premium Cheese Mix, Green Pepper, Red Pepper, Onion, Jalapeno, Fajita Sauce' , 20, 'images/Chicken_Fajita.jpg', 'Pizzas' );

@@ -36,7 +36,9 @@ $(document).ready(function () {
     let $order = `
     <div class="order-list-item">
       <div class="order-item">
-       <i class="bi bi-${orderItem.quantity}-circle-fill item-count" id="item-name"></i> ${orderItem.title}
+       <i class="bi bi-${
+         orderItem.quantity
+       }-circle-fill item-count" id="item-name"></i> ${orderItem.title}
       </div>
       <div class="order-price">
        <span>$<strong >${parseFloat(orderItem.price).toFixed(2)}</strong>
@@ -120,7 +122,7 @@ $(document).ready(function () {
       .parent()
       .parent()
       .find("#total-button");
-    // console.log($totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `));
+    $totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `);
     addTotal(orderList);
   });
 
@@ -130,8 +132,16 @@ $(document).ready(function () {
 
   ///To take the delete button from dynamically rendered code
   $(document).on("click", "#delete-button", function () {
-    console.log($(this).parent().siblings(".order-item").text().trim())
-    const $itemName = $(this).parent().siblings(".order-item").text().trim()
+    console.log($(this).parent().siblings(".order-item").text().trim());
+    const itemName = $(this).parent().siblings(".order-item").text().trim();
 
+    // deleteOrder(itemName, orderList)
+
+    ////Function to delete the order
+    console.log("orderrrr", orderList);
+    const deleteOrder = orderList.filter((item) => item.title !== itemName);
+    console.log("gooooaaaaa", deleteOrder);
+    orderList = deleteOrder;
+    renderOrderList();
   });
 });
