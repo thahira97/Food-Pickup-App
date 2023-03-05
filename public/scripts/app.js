@@ -9,6 +9,7 @@ $(document).ready(function () {
   const addOrderItem = function (orderList, orderItem) {
     if (orderList.length === 0) {
       orderList.push({
+        id: orderItem.id,
         title: orderItem.title,
         quantity: orderItem.quantity,
         price: orderItem.price * orderItem.quantity,
@@ -24,6 +25,7 @@ $(document).ready(function () {
         }
       }
       orderList.push({
+        id: orderItem.id,
         title: orderItem.title,
         quantity: orderItem.quantity,
         price: orderItem.price * orderItem.quantity,
@@ -101,10 +103,13 @@ $(document).ready(function () {
 
     const $price = Number($(this).parent().find("#dish-price").text());
 
+    const $id = $(this).data("dish-id")
+
     const orderItem = {
       title: $title,
       quantity: $quantity,
       price: $price,
+      id: $id
     };
 
     //Set the input value to 1
@@ -143,10 +148,11 @@ $(document).ready(function () {
     addTotal(orderList);
   });
 
-  ////POST request to send the  
+  ////POST request to send the
   $(document).on("click", "#total-button", function () {
     console.log("CLICKED!!!!!")
     $.post("/api/order/new", {orderList: orderList})
   });
 
 });
+

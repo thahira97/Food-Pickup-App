@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getMenu} = require("../db/queries/menu");
+const {getMenu} = require("../db/queries/menu_queries");
 
 router.get("/", (req, res) => {
   getMenu()
@@ -11,4 +11,6 @@ router.get("/", (req, res) => {
         res.status(500)
      })
 });
+
+
 module.exports = router;
