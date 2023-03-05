@@ -142,6 +142,8 @@ $(document).ready(function () {
     const deleteOrder = orderList.filter((item) => item.title !== itemName);
     console.log("gooooaaaaa", deleteOrder);
     orderList = deleteOrder;
-    renderOrderList();
+    renderOrderList(orderList);
+    $("#total-button").text(`Order now • $ ${addTotal(orderList)}.00 `);
+    addTotal(orderList);
   });
 });
