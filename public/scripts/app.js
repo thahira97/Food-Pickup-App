@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     const $price = Number($(this).parent().find("#dish-price").text());
 
-    const $id = $(this).data("dish-id")
+    const $id = Number($(this).data("dish-id"))
 
     const orderItem = {
       title: $title,
@@ -151,7 +151,7 @@ $(document).ready(function () {
   ////POST request to send the
   $(document).on("click", "#total-button", function () {
     console.log("CLICKED!!!!!")
-    $.post("/api/order/new", {orderList: orderList})
+    $.post("/api/order", {orderList: orderList})
   });
 
 });

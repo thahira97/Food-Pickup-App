@@ -1,7 +1,7 @@
 // load .env data into process.env
 require('dotenv').config();
 const db = require("./db/connection")
-
+const {addOrderListToDB} = require("./db/queries/menu_queries")
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
@@ -47,7 +47,7 @@ app.get('/restaurant', (req, res) => {
 
 // Note: mount other resources here, using the same pattern above
 app.use('/menu', menuRoutes);
-
+app.use('/api/order', menuRoutes )
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -57,10 +57,25 @@ app.get('/', (req, res) => {
  res.render('homepage');
 });
 
-app.post("/api/order/new", (req, res) => {
+// app.post('/api/order', (req, res) => {
+//   const clientid = 1
+//   addOrderListToDB(clientid)
+//     .then((result) => {
+//       const orderId = result.rows[0].id;
+//       res.status(201).json({ id: orderId });
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
+
+app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
   const clientId = req.cookies.userId
-
+  addOrderListToDB()
+   .then((response) => {
+    console.log("jkjkjkj",response.rows)
+   })
   console.log('from server.js', orderList, clientId)
 });
 

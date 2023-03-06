@@ -4,7 +4,13 @@ const getMenu = () => {
   return db.query('SELECT * FROM dishes;')
 };
 
-const addOrderList = () => {
-  
+const addOrderListToDB = (client_id) => {
+  return db
+     .query(`INSERT INTO orders (
+    client_id,
+    order_placed
+  ) VALUES ($1, NOW());`, [9])
+
 }
-module.exports = { getMenu };
+
+module.exports = { getMenu, addOrderListToDB };
