@@ -71,13 +71,15 @@ app.get('/', (req, res) => {
 
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
-  const clientId = req.cookies.userId
-  console.log(req.body.orderList, "uuuuuuu")
-  addOrderListToDB(orderList)
+  // const clientId = req.cookies.userId
+  // console.log(req.body.orderList, "uuuuuuu")
+
+      addOrderListToDB(orderList)
    .then((response) => {
-    console.log("jkjkjkj",response.rows)
+    console.log("jkjkjkj",response)
    })
-  console.log('from server.js', orderList, clientId)
+
+  // console.log('from server.js', orderList, clientId)
 });
 
 app.listen(PORT, () => {

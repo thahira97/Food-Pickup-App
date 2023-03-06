@@ -151,15 +151,15 @@ $(document).ready(function () {
   ////POST request to send the
   $(document).on("click", "#total-button", function () {
     console.log("CLICKED!!!!!")
-    $.post("/api/order", {orderList: orderList})
-
-  //  if (req.cookies.userId){
-
-  //  }else {
-
-  //  }
-
-
+    const $clientid = Number($(this).data("client-id"))
+    console.log("CLTID",$clientid)
+    if($clientid){
+      $.post("/api/order", {orderList: orderList})
+    }
+    else {
+     console.log( $(this).parent().find("#login-err"))
+      $(this).parent().find("#login-err").css("display", "block")
+    }
 
   });
 
