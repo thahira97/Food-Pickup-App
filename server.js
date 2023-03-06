@@ -40,7 +40,6 @@ const orderRoutes = require('./routes/orders');
 const loginRoutes = require('./routes/login');
 =======
 const orderRoutes = require('./routes/orders');
->>>>>>> 53efe88 (Render orders from database)
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,7 +54,7 @@ app.use('/orders', orderRoutes);
 app.use('/login', loginRoutes);
 =======
 app.use('/orders', orderRoutes);
->>>>>>> 53efe88 (Render orders from database)
+app.use('/login', loginRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -69,7 +68,7 @@ app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
   const clientId = req.cookies.userId
 
-  addOrderListToDB(orderList).then((response) => {
+  addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
   });
 
