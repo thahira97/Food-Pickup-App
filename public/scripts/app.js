@@ -103,13 +103,13 @@ $(document).ready(function () {
 
     const $price = Number($(this).parent().find("#dish-price").text());
 
-    const $id = Number($(this).data("dish-id"))
+    const $id = Number($(this).data("dish-id"));
 
     const orderItem = {
       title: $title,
       quantity: $quantity,
       price: $price,
-      id: $id
+      id: $id,
     };
 
     //Set the input value to 1
@@ -150,18 +150,18 @@ $(document).ready(function () {
 
   ////POST request to send the
   $(document).on("click", "#total-button", function () {
-    console.log("CLICKED!!!!!")
-    const $clientid = Number($(this).data("client-id"))
-    console.log("CLTID",$clientid)
-    if($clientid){
-      $.post("/api/order", {orderList: orderList})
+    console.log("CLICKED!!!!!");
+    const $clientid = Number($(this).data("client-id"));
+    console.log("CLTID", $clientid);
+    if (orderList.length === 0) {
+      $(this).parent().find("#order-err").css("display", "block");
+    } else if (!$clientid) {
+      $(this).parent().find("#order-err").css("display", "none");
+      $(this).parent().find("#login-err").css("display", "block");
+    } else {
+      $.post("/api/order", { orderList: orderList });
+      $(this).parent().find("#order-err").css("display", "none");
+      $(this).parent().find("#login-err").css("display", "none");
     }
-    else {
-     console.log( $(this).parent().find("#login-err"))
-      $(this).parent().find("#login-err").css("display", "block")
-    }
-
   });
-
 });
-
