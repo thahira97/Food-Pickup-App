@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,9 @@
 <body id="menu-page">
   <header></header>
 
+  </header>
   <main>
+
 
     <section id="menu" style="width: 60%;">
 
@@ -37,129 +40,64 @@
         <h3 class="category">Pizzas</h3>
 
         <div class="dishes">
+          <% for (const dish of dishes) { %>
+            <% if (dish.category === "Pizzas") { %>
           <div class="card">
-            <img class="card-img-top" src="images/Grilled_Chicken_Arabiatta.jpg" alt="">
+            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
             <div class="card-body">
-              <h5 class="card-title">Grilled Chicken Arabiata</h5>
-              <p class="card-text">Seasoned grilled chicken breast, green pepper, roasted red pepper, red onion, pesto marinated tomato, chili flakes and pizza mozzarella</p>
+              <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
+              <p class="card-text"><%= dish.description %></p>
             </div>
             <div class="card-footer">
               <div class="dish-price-qty">
                 <div class="price">
-                  <span><strong>$35.00</strong></span>
+                  <span>$<strong id="dish-price"><%= dish.price %></strong></span>
                 </div>
                 <div class="quantity">
                   <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                    <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1">-</button>
+                    <input type="text" class="form-control" id="quantity" value=1>
+                    <button class="btn btn-outline-secondary increment" type="button" id="button-addon2">+</button>
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
+              <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>">Add to order</button>
             </div>
           </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Chicken_Caeser.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Chicken Caesar</h5>
-              <p class="card-text">Alfredo sauce, seasoned grilled chicken breast, bacon crumble, roasted garlic, parmesan and pizza mozzarella</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$35.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Chicken_Fajita.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Chicken Fajita</h5>
-              <p class="card-text">Tomato Sauce, Spiced Chicken, Premium Cheese Mix, Green Pepper, Red Pepper, Onion, Jalapeno, Fajita Sauce</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$35.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-        </div>
+          <% } %>
+           <% } %>
       </section>
 
       <section class="menu-category">
         <h3 class="category">Sides</h3>
 
         <div class="dishes">
+          <% for (const dish of dishes) { %>
+            <% if (dish.category === "Sides") { %>
           <div class="card">
-            <img class="card-img-top" src="images/French_Fries.jpg" alt="">
+            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
             <div class="card-body">
-              <h5 class="card-title">French Fries</h5>
-              <p class="card-text">Crispy fried potato chips with dip</p>
+              <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
+              <p class="card-text"><%= dish.description %></p>
             </div>
             <div class="card-footer">
               <div class="dish-price-qty">
                 <div class="price">
-                  <span><strong>$10.00</strong></span>
+                  <span>$<strong id="dish-price"><%= dish.price %></strong></span>
                 </div>
                 <div class="quantity">
                   <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                    <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1">-</button>
+                    <input type="text" class="form-control" id="quantity" value="1" >
+                    <button class="btn btn-outline-secondary increment" type="button" id="button-addon2">+</button>
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
+              <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>" >Add to order</button>
             </div>
           </div>
-
-          <div class="card">
-            <img class="card-img-top" src="images/Onion_Rings.jpg" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Onion Rings</h5>
-              <p class="card-text">Crispy fried freshly cut onion rings with dip</p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span><strong>$10.00</strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" value="1">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn">Add to order</button>
-            </div>
-          </div>
-
-        </div>
+          <% } %>
+           <% } %>
       </section>
     </section>
 
@@ -169,28 +107,14 @@
           <h2>Your Pickup Order</h2>
           <span><i class="bi bi-geo-alt"></i> Pickup at 123 Main St</span>
         </div>
-        <div class="order-body">
-          <div class="order-list-item">
-            <div class="order-item">
-              <i class="bi bi-1-circle-fill item-count"></i> Grilled Chicken Arabiata
-            </div>
-            <div class="order-price">
-              <strong>$35.00</strong> <button type="button" class="btn btn-link delete-item-btn"><i class="bi bi-trash3"></i></button>
-            </div>
+        <div class="order-body" id="order-container">
           </div>
-          <div class="order-list-item">
-            <div class="order-item">
-              <i class="bi bi-3-circle-fill item-count"></i> Onion Rings
-            </div>
-            <div class="order-price">
-              <strong>$30.00</strong> <button type="button" class="btn btn-link delete-item-btn"><i class="bi bi-trash3"></i></button>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary order-now-btn">Order now • $65.00</button>
+          <button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button>
+          <p id="login-err"  >Please login to place order</p>
+          <p id="order-err"  >Please add items to basket to place order</p>
         </div>
       </div>
     </section>
   </main>
-
 </body>
 </html>
