@@ -72,7 +72,8 @@ app.get('/', (req, res) => {
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
   const clientId = req.cookies.userId
-  addOrderListToDB()
+  console.log(req.body.orderList, "uuuuuuu")
+  addOrderListToDB(orderList)
    .then((response) => {
     console.log("jkjkjkj",response.rows)
    })

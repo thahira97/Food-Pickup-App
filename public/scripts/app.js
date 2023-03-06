@@ -152,6 +152,15 @@ $(document).ready(function () {
   $(document).on("click", "#total-button", function () {
     console.log("CLICKED!!!!!")
     $.post("/api/order", {orderList: orderList})
+
+  //  if (req.cookies.userId){
+
+  //  }else {
+
+  //  }
+
+
+
   });
 
 });
