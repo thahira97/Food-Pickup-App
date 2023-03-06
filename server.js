@@ -9,7 +9,7 @@ const express = require("express");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 8080;
 const app = express();
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //cookie parser
 const cookieParser = require("cookie-parser");
@@ -44,9 +44,9 @@ const orderRoutes = require('./routes/orders');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use("/api/users", userApiRoutes);
+app.use("/api/widgets", widgetApiRoutes);
+app.use("/users", usersRoutes);
 
 // Note: mount other resources here, using the same pattern above
 app.use('/menu', menuRoutes);
@@ -66,14 +66,13 @@ app.get("/", (req, res) => {
 
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
-  const clientId = req.cookies.userId
+  const clientId = req.cookies.userId;
 
   addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
   });
 
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
