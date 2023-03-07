@@ -1,52 +1,6 @@
-.card {
-  border-radius: 12px;
-}
-
-.card-img-top {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  height: 15vw;
-  object-fit: cover;
-}
-
-.card-text {
-  font-size: 0.875rem;
-}
-
-.card-body {
-  padding: 1.5em;
-}
-
-#menu-page .card-footer {
-  background-color: #fff;
-  border-top: 0;
-  border-bottom-left-radius: 12px !important;
-  border-bottom-right-radius: 12px !important;
-  padding: 0 1.5em 1.5em 1.5em;
-}
-
-.btn {
-  border-radius: 12px;
-}
-
 /* Menu */
 
-header {
-  height: 200px;
-  width: 100%;
-  background-color: #ddd;
-}
-
-main {
-  width: 90%;
-  margin: 0 auto;
-  position: relative;
-  top: -100px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#menu {
+.menu-content {
   background-color: #fff;
   padding: 3.5em;
   border: 1px solid #ddd;
@@ -59,46 +13,27 @@ main {
   border-bottom: 1px solid #ddd;
 }
 
+.restaurant-info h1 {
+  margin: 0 0 0.5rem 0;
+}
+
 .menu-category {
-  padding-top: 2.5em;
-  padding-bottom: 2.5em;
+  padding-top: 3.5em;
 }
 
-.category {
+.menu-category h2 {
   margin-bottom: 1.25em;
+  text-align: center;
 }
 
-.dishes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.dishes .card {
-  width: 48%;
-  margin-bottom: 2em;
-}
-
-.add-order-btn, .order-now-btn {
-  width: 100%;
-  margin-top: 1.5em;
-  padding-top: 11px;
-  padding-bottom: 11px;
-  background: #333;
-  border-color: #333;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.dish-price-qty {
+.price-qty {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .quantity {
-  width: 50%;
+  width: 140px;
 }
 
 .quantity input {
@@ -108,7 +43,7 @@ main {
 /* Order */
 
 .order-content {
-  width: 26.875%;
+  width: 416px;
   background-color: #fff;
   padding: 2em;
   border: 1px solid #ddd;
@@ -116,7 +51,7 @@ main {
 }
 
 .order-header {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 1px solid #ddd;
 }
 
@@ -124,33 +59,19 @@ main {
   font-size: 1.5rem;
 }
 
-.order-body {
-  padding-top: 1em;
-}
-
-.order-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1em;
-}
-
-.item-count {
-  padding-right: 0.25em;
-}
-
 .delete-item-btn {
   padding: 0;
   padding-left: 0.75em;
 }
 
+.order-now-btn {
+  margin: 0;
+}
+
+.alert {
+  margin-top: 1rem;
+}
+
 #login-err, #order-err {
-  color: red;
-  background-color: #f6c4c0;
-  border: solid 1px red;
-  margin: 5px 5px;
-  text-align: center;
-  border-radius: 30px;
-  padding: 20px;
   display: none;
 }
