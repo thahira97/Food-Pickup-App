@@ -1,5 +1,5 @@
 // load .env data into process.env
-require("dotenv").config();
+require('dotenv').config();
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
 // Web server config
@@ -8,7 +8,7 @@ const express = require("express");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 8080;
 const app = express();
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 //cookie parser
 const cookieParser = require("cookie-parser");
@@ -42,9 +42,9 @@ const orderSummaryRoutes = require('./routes/order-summary');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use("/api/users", userApiRoutes);
+app.use("/api/widgets", widgetApiRoutes);
+app.use("/users", usersRoutes);
 
 // Note: mount other resources here, using the same pattern above
 app.use('/menu', menuRoutes);
@@ -52,38 +52,25 @@ app.use('/orders', orderRoutes);
 app.use('/login', loginRoutes);
 app.use('/order-summary', orderSummaryRoutes);
 
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("homepage");
+  const clientId = req.cookies.userId
+  res.render("homepage", {clientId: clientId});
 });
-
-// app.post('/api/order', (req, res) => {
-//   const clientid = 1
-//   addOrderListToDB(clientid)
-//     .then((result) => {
-//       const orderId = result.rows[0].id;
-//       res.status(201).json({ id: orderId });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
 
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
-  // const clientId = req.cookies.userId
-  // console.log(req.body.orderList, "uuuuuuu")
+  const clientId = req.cookies.userId;
 
-  addOrderListToDB(orderList).then((response) => {
-    console.log("jkjkjkj", response);
+  addOrderListToDB(orderList, clientId).then((response) => {
+    console.log(response);
   });
 
-  // console.log('from server.js', orderList, clientId)
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
