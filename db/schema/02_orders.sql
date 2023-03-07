@@ -6,5 +6,5 @@ CREATE TABLE orders (
   order_approved TIMESTAMP,
   order_completed TIMESTAMP,
   estimated_time smallINT,
-  order_status BOOLEAN
+  order_status BOOLEAN NOT NULL DEFAULT TRUE
 );
