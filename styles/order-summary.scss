@@ -1,8 +1,4 @@
 main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 140px;
   margin-bottom: 25px;
   height: fit-content;
@@ -25,22 +21,22 @@ h6{
 }
 
 .card-body{
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
   height: max-content;
-  width: 400px;
   border: solid 10px cornflowerblue;
   border-radius: 5px;
 }
 
 .order-item{
 margin: 0px;
-display: flex;
-justify-content: flex-start;
 padding: 5px;
-width: min-content;
-gap:10px;
+}
+
+#summary{
+  width: fit-content;
+}
+
+span{
+width: max-content;
 }
 
 
