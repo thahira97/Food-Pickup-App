@@ -27,7 +27,7 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static("public"));
+app.use(express.static(__dirname+"/public"));
 app.use(cookieParser());
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -60,6 +60,7 @@ app.get("/", (req, res) => {
   res.render("homepage", {clientId: clientId});
 });
 
+
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
   const clientId = req.cookies.userId;
@@ -69,6 +70,11 @@ app.post("/api/order", (req, res) => {
   });
 
 });
+
+app.post("/logout", (req,res)=>{
+  res.clearCookie("userId");
+  res.redirect("/")
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

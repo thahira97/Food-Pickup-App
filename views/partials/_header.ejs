@@ -10,12 +10,32 @@
     </div>
   </div>
   <div class="right-header">
-    <div class="id">
-      <label for="id"></label>
-      <input class="form-control" type="text" name="id" placeholder="User Id" />
-    </div>
-    <form class="login_form" action="/login" method="GET">
-      <button class="rounded-button" data-attribute="false" type ="button" >Login</button>
+    <% if (!clientId) {%>
+    <form action="/login" method="post" id="form-style">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter Email"
+      />
+
+      <button id="login-button" type="submit" class="rounded-button">
+        Log in
+      </button>
     </form>
+  <%} else {%>
+    <form method="POST" action="/logout">
+      <button id="login-button" type="submit" class="rounded-button">
+      Logout
+    </button>
+    </form>
+<% } %>
+    <!-- <form id="login-form">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <button type="submit" id="login-button">Log in</button>
+    </form> -->
   </div>
 </header>
