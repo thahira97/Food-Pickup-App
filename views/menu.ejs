@@ -16,7 +16,7 @@
   <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/menu.css" />
- 
+
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/login_event.js"></script>
@@ -112,7 +112,9 @@
         </div>
         <div class="order-body" id="order-container">
           </div>
-          <button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button>
+          <a href="/order-summary">
+            <button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button>
+          </a>
           <p id="login-err"  >Please login to place order</p>
           <p id="order-err"  >Please add items to basket to place order</p>
         </div>

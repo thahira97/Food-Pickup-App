@@ -14,4 +14,16 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/get-all-orders", (req, res) => {
+  const clientId = req.cookies.userId;
+  getSummary()
+    .then((response) => {
+      res.json( { dishes: response.rows, clientId: clientId });
+    })
+    .catch((err) => {
+      res.status(500);
+    });
+
+})
+
 module.exports = router;

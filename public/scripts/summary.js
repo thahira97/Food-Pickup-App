@@ -1,42 +1,46 @@
 // Client facing scripts here
 
-const { getSummary } = require("../../db/queries/ord-sum");
+///Function to create html of summary
+const createOrderSummary = function(orderItem) {
+  let $order = `
+  <div class="order-list-item">
+    <div class="order-item">
+     <i class="bi bi-${orderItem.quantity
+    }-circle-fill item-count" id="item-name"></i> ${orderItem.title}
+    </div>
+    <div class="order-price">
+     <span>$<strong >${parseFloat(orderItem.price).toFixed(2)}</strong>
+     </span>
+    </div>
+</div>`;
+  return $order;
+};
 
-$(document).ready(function () {
+////Function to render the orderlist html on the order summary
+ const renderSummary = function(orderList) {
 
-    ///Function to create html of summary
-    const createOrderSummary = function (orderItem) {
-      let $order = `
-      <div class="order-list-item">
-        <div class="order-item">
-         <i class="bi bi-${
-           orderItem.quantity
-         }-circle-fill item-count" id="item-name"></i> ${orderItem.title}
-        </div>
-        <div class="order-price">
-         <span>$<strong >${parseFloat(orderItem.price).toFixed(2)}</strong>
-         </span>
-         <button type="button" class="btn btn-link delete-item-btn"         id="delete-button"><i class="bi bi-trash3" ></i>
-         </button>
-        </div>
-    </div>`;
-      return $order;
-    };
+  const $summaryContainer = $("#summary-container");
 
-    ////Function to render the orderlist html on the order summary
+  for (const order of orderList) {
+    const $summaryHtml = createOrderSummary(order);
+    $summaryContainer.prepend($summaryHtml);
+  }
+};
 
-  const renderSummary = function() {
-    console.log("render summary");
-      const $summaryContainer = $("#summary-container");
-    let $summaryHtml = "";
-    orderList = getSummary()
-      for (const order of orderList) {
-        $summaryHtml += createOrderSummary(order);
-      }
-      $summaryContainer.html($summaryHtml);
-      console.log("render summary")
-    };
+$(document).ready(function() {
+  $.get("http://localhost:8080/order-summary/get-all-orders", function(data) {
 
-  renderSummary();
+    const { clientId, dishes } = data;
+    console.log(dishes);
+    renderSummary(dishes);
+  });
+
+
+
+
+
+
+
+
 
 });
