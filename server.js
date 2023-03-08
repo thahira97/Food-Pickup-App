@@ -1,5 +1,5 @@
 // load .env data into process.env
-require('dotenv').config();
+require("dotenv").config();
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
 // Web server config
@@ -27,16 +27,16 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
-const menuRoutes = require('./routes/menu');
-const orderRoutes = require('./routes/orders');
-const loginRoutes = require('./routes/login');
+const userApiRoutes = require("./routes/users-api");
+const widgetApiRoutes = require("./routes/widgets-api");
+const usersRoutes = require("./routes/users");
+const menuRoutes = require("./routes/menu");
+const orderRoutes = require("./routes/orders");
+const loginRoutes = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -46,20 +46,18 @@ app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 
 // Note: mount other resources here, using the same pattern above
-app.use('/menu', menuRoutes);
-app.use('/orders', orderRoutes);
-app.use('/login', loginRoutes);
-
+app.use("/menu", menuRoutes);
+app.use("/orders", orderRoutes);
+app.use("/login", loginRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  const clientId = req.cookies.userId
-  res.render("homepage", {clientId: clientId});
+  const clientId = req.cookies.userId;
+  res.render("homepage", { clientId: clientId });
 });
-
 
 app.post("/api/order", (req, res) => {
   const { orderList } = req.body;
@@ -68,13 +66,12 @@ app.post("/api/order", (req, res) => {
   addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
   });
-
 });
 
-app.post("/logout", (req,res)=>{
+app.post("/logout", (req, res) => {
   res.clearCookie("userId");
-  res.redirect("/")
-})
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
