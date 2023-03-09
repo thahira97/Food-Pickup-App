@@ -30,24 +30,34 @@
 
   <main>
 
-      <div class="card-body">
-        <section id="summary">
-          <div class="order-content">
-            <div class="order-header">
-              <h2>Your Pickup Order</h2>
-              <span class="pick-up-location"><i class="bi bi-geo-alt"></i> Pickup at 123 Main St</span>
-            </div>
-            <div id="summary-container"/>
-            <span class="total-container">
-            Total: $<span id="order-total"/>
+    <div class="card-body">
+      <section id="summary">
+        <div class="order-content">
+          <div class="order-header">
+            <h2>Your Pickup Order</h2>
+            <span class="pick-up-location"><i class="bi bi-geo-alt"></i> Pickup at 123 Main St</span>
+          </div>
+          <div id="summary-container" />
+          <span class="total-container">
+            Total: $<span id="order-total" />
+          </span>
+
+          <span class="pending">
+            Your order is pending
           </span>
 
           <span class="estimate-container">
-            Estimated time: <span id="estimated-time"></span> minutes
+            Your order is approved it will be ready in: <span id="estimated-time"></span> minutes
           </span>
-          </div>
-      </div>
-      </section>
+
+          <span class="complete">
+            Your order is ready!
+          </span>
+
+        </div>
+
+    </div>
+    </section>
 
   </main>
   <footer>

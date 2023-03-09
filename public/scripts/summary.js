@@ -30,11 +30,33 @@ const renderSummary = function(orderList) {
    }
   $("#order-total").text(total);
 
+  if (orderList[0].order_approved === null) {
+    $(".pending").slideDown();
+  }
+  console.log(orderList[0].order_approved);
+
   if (orderList[0].order_approved !== null) {
+    $(".pending").hide();
     $(".estimate-container").slideDown();
     $("#estimated-time").text(estimatedTime);
   }
 
+  if (orderList[0].order_completed) {
+    $(".pending").hide();
+    $(".estimate-container").hide();
+    $(".complete").slideDown();
+  }
+
+  // complete
+
+  // var currentdate = new Date();
+  // var datetime = "Your order was placed on " + currentdate.getDate() + "/"
+  //                 + (currentdate.getMonth()+1)  + "/"
+  //                 + currentdate.getFullYear() + " @ "
+  //                 + currentdate.getHours() + ":"
+  //                 + currentdate.getMinutes() + ":"
+  //                 + currentdate.getSeconds();
+  // console.log(datetime);
 };
 
 $(document).ready(function() {
