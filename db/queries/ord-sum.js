@@ -3,7 +3,7 @@ const db = require("../connection");
 const getSummary = () => {
   console.log("database query");
   return db.query(`
-  SELECT orders.id, dishes.title, dishes.price, dishes.image_url, quantity
+  SELECT orders.id, dishes.title, dishes.price, dishes.image_url, quantity,estimated_time, order_placed, order_approved
   FROM orders
   JOIN order_dishes ON order_id = orders.id
   JOIN dishes ON dishes.id = dish_id

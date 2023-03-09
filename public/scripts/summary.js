@@ -18,7 +18,8 @@ const createOrderElement = function(orderItem) {
 };
 
 ////Function to render the orderlist html on the order summary
- const renderSummary = function(orderList) {
+const renderSummary = function(orderList) {
+  let estimatedTime = orderList[0].estimated_time;
    let total = 0;
   const $summaryContainer = $("#summary-container");
 
@@ -27,8 +28,13 @@ const createOrderElement = function(orderItem) {
     const $summaryHtml = createOrderElement(order);
     $summaryContainer.prepend($summaryHtml);
    }
-   console.log(total);
-   $("#order-total").text(total);
+  $("#order-total").text(total);
+
+  if (orderList[0].order_approved !== null) {
+    $(".estimate-container").slideDown();
+    $("#estimated-time").text(estimatedTime);
+  }
+
 };
 
 $(document).ready(function() {
