@@ -28,7 +28,7 @@ app.use(
   })
 );
 app.use(express.static(__dirname + "/public"));
-app.use(cookieParser());
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require("./routes/users-api");

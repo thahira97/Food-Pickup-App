@@ -1,5 +1,18 @@
 // Client facing scripts here
 
+const { on } = require("nodemon");
+
+// const markAsCompleteButton = [...document.querySelectorAll(".complete-btn")]
+// markAsCompleteButton.forEach(btn => {
+//   btn.addEventListener("click", (e) => {
+//     // orderCreated();
+//     // const itemOrderId = e.target.getAttribute("data-orderid")
+//     // console.log("item order id",itemOrderId);
+//   })
+// })
+
+
+
 $(document).ready(function () {
   //OrderList where order item to be pushed
 

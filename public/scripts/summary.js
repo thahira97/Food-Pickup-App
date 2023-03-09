@@ -28,7 +28,7 @@ const renderSummary = function(orderList) {
     const $summaryHtml = createOrderElement(order);
     $summaryContainer.prepend($summaryHtml);
    }
-  $("#order-total").text(total);
+  $("#order-total").text((total).toFixed(2));
 
   if (orderList[0].order_approved === null) {
     $(".pending").slideDown();

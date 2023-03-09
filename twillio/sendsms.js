@@ -7,6 +7,15 @@ const authToken = process.env.TWILIO_AUTH_TOKEN; // Your Auth Token from www.twi
 const client = require('twilio')(accountSid, authToken);
 
 
+const orderPlaced = function() {
+  client.messages
+  .create({
+    body: 'A new order has been placed',
+    to: process.env.CLIENT_PH_NUM, // Text this number
+    from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
+  })
+  .then((message) => console.log(message.sid));
+};
 
 const orderCreated = function() {
   client.messages
