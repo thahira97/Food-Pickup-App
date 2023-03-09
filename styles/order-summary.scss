@@ -1,0 +1,53 @@
+main {
+  margin-top: 140px;
+  margin-bottom: 25px;
+  height: fit-content;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 100vw;
+}
+
+h6 {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.order-content {
+  font-weight: 700;
+}
+
+.order-item {
+  margin: 0px;
+  padding: 5px;
+}
+
+.order-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+}
+
+.total-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pick-up-location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+
+.bi-1-circle-fill {
+  font-size: 20px;
+}
