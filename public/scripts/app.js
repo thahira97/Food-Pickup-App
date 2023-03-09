@@ -162,7 +162,7 @@ $(document).ready(function () {
       $.post("/api/order", { orderList: orderList });
       $(this).parent().find("#order-err").css("display", "none");
       $(this).parent().find("#login-err").css("display", "none");
-      window.location.href = "/order";
+      window.location.href = "/orders";
     }
   });
 });
