@@ -1,32 +1,23 @@
-$(document).ready(function() {
+// $(document).ready(function () {
+//   $("#login-button").click(function (event) {
+//     event.preventDefault();
+//     const email = $("#email").val();
+//     console.log("Value of Email field", email);
 
-  $(".rounded-button").click(function(event) {
-    event.preventDefault();
-    if ($(".rounded-button").data("attribute") === "true") {
-      const idVal = $(".form-control").val()
-      console.log(idVal);
+//     $.post("/login", { email: email })
+//     .then((response) => {
 
-      $.post("/login", { idVal })
-        .then((id) => {
-          if (id === 2) {
-            window.location.href='http://localhost:8080/orders';
-          }
-          else {
-            window.location.href = 'http://localhost:8080/menu';
-          }
+//       console.log("response", response)
+//       if (email === "maestro@gmail.com") {
+//         window.location.href = 'http://localhost:8080/orders';
+//       }
+//       else {
+//         window.location.href = 'http://localhost:8080/menu';
+//       };
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
 
-        })
-
-      return;
-    }
-
-    console.log("clicked once");
-    $(".id").slideDown();
-    $(".rounded-button").data("attribute", "true");
-    $(".rounded-button").prop("type", "submit");
-  });
-
-});
-
-
-
+//   });
+// });

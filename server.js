@@ -1,5 +1,5 @@
 // load .env data into process.env
-require('dotenv').config();
+require("dotenv").config();
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
 // Web server config
@@ -27,16 +27,16 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
-const menuRoutes = require('./routes/menu');
-const orderRoutes = require('./routes/orders');
-const loginRoutes = require('./routes/login');
+const userApiRoutes = require("./routes/users-api");
+const widgetApiRoutes = require("./routes/widgets-api");
+const usersRoutes = require("./routes/users");
+const menuRoutes = require("./routes/menu");
+const orderRoutes = require("./routes/orders");
+const loginRoutes = require("./routes/login");
 const orderSummaryRoutes = require('./routes/order-summary');
 
 // Mount all resource routes
@@ -58,8 +58,8 @@ app.use('/order-summary', orderSummaryRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  const clientId = req.cookies.userId
-  res.render("homepage", {clientId: clientId});
+  const clientId = req.cookies.userId;
+  res.render("homepage", { clientId: clientId });
 });
 
 app.post("/api/order", (req, res) => {
@@ -69,7 +69,11 @@ app.post("/api/order", (req, res) => {
   addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
   });
+});
 
+app.post("/logout", (req, res) => {
+  res.clearCookie("userId");
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {

@@ -19,9 +19,10 @@ const reduceResponeObj = (obj) => {
 };
 
 const renderOrders = (req, res) => {
+  const clientId = req.cookies.userId
   getOrders()
     .then((response) => {
-      res.render("orders", {orders : reduceResponeObj(response.rows)});
+      res.render("orders", {orders : reduceResponeObj(response.rows), clientId: clientId});
     })
     .catch(err => {
       res.status(500);
