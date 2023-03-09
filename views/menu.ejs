@@ -1,19 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Maestro Pizza</title>
+  <title>Our Menu · Maestro Pizza</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS and icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
+  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/menu.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
@@ -21,102 +29,116 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/login_event.js"></script>
-
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
 </head>
 
 <body id="menu-page">
   <%- include('partials/_header') %>
-  <main>
-    <section id="menu" style="width: 60%;">
 
-      <div class="restaurant-info">
-        <h2>Maestro Pizza</h2>
-        <span>Fast food</span>
-      </div>
+  <main class="container">
+    <div class="row">
 
-      <section class="menu-category">
-        <h3 class="category">Pizzas</h3>
+      <section id="menu" class="col-8">
+        <div class="menu-content">
 
-        <div class="dishes">
-          <% for (const dish of dishes) { %>
-            <% if (dish.category === "Pizzas") { %>
-          <div class="card">
-            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
-            <div class="card-body">
-              <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
-              <p class="card-text"><%= dish.description %></p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span>$<strong id="dish-price"><%= dish.price %></strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" id="quantity" value=1>
-                    <button class="btn btn-outline-secondary increment" type="button" id="button-addon2">+</button>
+          <div class="restaurant-info">
+            <h1>Our Menu</h1>
+            <span>Enjoy the ease of ordering delicious pizza and starters for pickup!</span>
+          </div>
+
+          <div class="menu-category">
+            <h2>Pizza</h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <% for (const dish of dishes) { %>
+                <% if (dish.category === "Pizzas") { %>
+                  <div class="col">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="<%= dish.image_url %>" alt="Image of <%= dish.title %>">
+                      <div class="card-body">
+                        <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
+                        <p class="card-text"><%= dish.description %></p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="price-qty">
+                          <span>$<strong id="dish-price"><%= dish.price %></strong></span>
+                          <% if (clientId) { %>
+                            <div class="input-group quantity">
+                              <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1"><i class="bi bi-dash"></i></button>
+                              <input type="text" class="form-control" id="quantity" value="1">
+                              <button class="btn btn-outline-secondary increment" type="button" id="button-addon2"><i class="bi bi-plus"></i></button>
+                            </div>
+                          <% } %>
+                        </div>
+                        <% if (clientId) { %>
+                          <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>">Add to order</button>
+                        <% } %>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>">Add to order</button>
+                <% } %>
+              <% } %>
             </div>
           </div>
-          <% } %>
-           <% } %>
+
+          <div class="menu-category">
+            <h2>Sides</h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <% for (const dish of dishes) { %>
+                <% if (dish.category === "Sides") { %>
+                  <div class="col">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="<%= dish.image_url %>" alt="Image of <%= dish.title %>">
+                      <div class="card-body">
+                        <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
+                        <p class="card-text"><%= dish.description %></p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="price-qty">
+                          <span>$<strong id="dish-price"><%= dish.price %></strong></span>
+                          <% if (clientId) { %>
+                            <div class="input-group quantity">
+                              <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1"><i class="bi bi-dash"></i></button>
+                              <input type="text" class="form-control" id="quantity" value="1">
+                              <button class="btn btn-outline-secondary increment" type="button" id="button-addon2"><i class="bi bi-plus"></i></button>
+                            </div>
+                          <% } %>
+                        </div>
+                        <% if (clientId) { %>
+                          <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>">Add to order</button>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              <% } %>
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      <section class="menu-category">
-        <h3 class="category">Sides</h3>
-
-        <div class="dishes">
-          <% for (const dish of dishes) { %>
-            <% if (dish.category === "Sides") { %>
-          <div class="card">
-            <img class="card-img-top" src="<%= dish.image_url %>" alt="">
-            <div class="card-body">
-              <h5 class="card-title" id="dish-title"><%= dish.title %></h5>
-              <p class="card-text"><%= dish.description %></p>
-            </div>
-            <div class="card-footer">
-              <div class="dish-price-qty">
-                <div class="price">
-                  <span>$<strong id="dish-price"><%= dish.price %></strong></span>
-                </div>
-                <div class="quantity">
-                  <div class="input-group">
-                    <button class="btn btn-outline-secondary decrement" type="button" id="button-addon1">-</button>
-                    <input type="text" class="form-control" id="quantity" value="1" >
-                    <button class="btn btn-outline-secondary increment" type="button" id="button-addon2">+</button>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary add-order-btn" data-dish-id="<%= dish.id %>" >Add to order</button>
-            </div>
+      <section id="order" class="col-4">
+        <div class="order-content position-fixed">
+          <div class="order-header">
+            <h2>Your Pickup Order</h2>
+            <p><i class="bi bi-geo-alt"></i> Pickup at 925 Rathburn Rd</p>
           </div>
+          <% if (clientId) { %>
+            <div class="order-body" id="order-container">
+              <div class="alert alert-secondary" role="alert"><i class="bi bi-cart3"></i> Your cart is currently empty!</div>
+            </div>
+            <a href="/order-summary"><button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button></a>
+          <% } else { %>
+            <div class="order-body">
+              <div class="alert alert-secondary" role="alert">Please <a href="http://localhost:8080/">log in</a> to place an order.</div>
+            </div>
           <% } %>
-           <% } %>
+          <div class="alert alert-danger" role="alert" id="login-err">Please log in to place an order.</div>
+          <div class="alert alert-danger" role="alert" id="order-err">Your cart is empty! Please add items to the cart to place your order.</div>
+        </div>
       </section>
-    </section>
 
-    <section id="order" style="width: 30%;">
-      <div class="order-content position-fixed">
-        <div class="order-header">
-          <h2>Your Pickup Order</h2>
-          <span><i class="bi bi-geo-alt"></i> Pickup at 123 Main St</span>
-        </div>
-        <div class="order-body" id="order-container">
-          </div>
-          <a href="/order-summary">
-            <button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button>
-          </a>
-          <p id="login-err"  >Please login to place order</p>
-          <p id="order-err"  >Please add items to basket to place order</p>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
+
 </body>
 </html>

@@ -59,8 +59,12 @@ $(document).ready(function () {
     // console.log('EXISTING ORDERLIST FROM LOCAL STORAGE', orderList)
     const $orderContainer = $("#order-container");
     let $orderItemHtml = "";
-    for (const order of orderList) {
-      $orderItemHtml += createOrderItem(order);
+    if (orderList.length === 0) {
+      $orderItemHtml += `<div class="alert alert-secondary" role="alert"><i class="bi bi-cart3"></i> Your cart is currently empty!</div>`;
+    } else {
+      for (const order of orderList) {
+        $orderItemHtml += createOrderItem(order);
+      }
     }
     $orderContainer.html($orderItemHtml);
   };
@@ -126,8 +130,10 @@ $(document).ready(function () {
       .parent()
       .parent()
       .parent()
+      .parent()
+      .parent()
       .find("#total-button");
-    $totalButton.text(`Order now • $ ${addTotal(orderList)}.00 `);
+    $totalButton.text(`Order now • $${addTotal(orderList)}.00 `);
     addTotal(orderList);
   });
 
@@ -143,7 +149,7 @@ $(document).ready(function () {
     const deleteOrder = orderList.filter((item) => item.title !== itemName);
     orderList = deleteOrder;
     renderOrderList(orderList);
-    $("#total-button").text(`Order now • $ ${addTotal(orderList)}.00 `);
+    $("#total-button").text(`Order now • $${addTotal(orderList)}.00 `);
     addTotal(orderList);
   });
 
