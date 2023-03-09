@@ -14,12 +14,19 @@
   padding-bottom: 0;
 }
 
-.card-footer p {
-  font-size: 0.875rem;
+.card .reject-btn {
+  background: #fff;
+  color: #f95738;
 }
 
-.reject-btn, .complete-btn {
+.card .reject-btn, .card .complete-btn {
   margin-top: 1em;
+}
+
+.card .reject-btn:hover {
+  background: #D42907;
+  border-color: #D42907;
+  color: #fff;
 }
 
 .est-time {

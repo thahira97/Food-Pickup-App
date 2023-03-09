@@ -10,6 +10,11 @@
 
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS and icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -25,8 +30,6 @@
 </head>
 
 <body id="orders-page">
-
-  <header></header>
 
   <main class="container">
 
@@ -103,7 +106,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <p class="est-time">Estimated completion time: <%= order.estimated_time %> mins</p>
+                  <p class="est-time">Estimated completion time: <strong><%= order.estimated_time %> mins</strong></p>
                   <form method="post" action="/orders">
                     <input type="hidden" name="order_id" value="<%= order.id %>" />
                     <button type="submit" class="btn btn-primary complete-btn" name="complete" value="true">Mark as complete</button>
@@ -140,13 +143,13 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <p class="est-time">Estimated completion time: <%= order.estimated_time %> mins</p>
+                  <p class="est-time">Estimated completion time: <strong><%= order.estimated_time %> mins</strong></p>
                   <p class="act-time">Actual completion time:
-                    <% if (Math.round((order.order_completed - order.order_approved) / 60000) === 1) { %>
+                    <strong><% if (Math.round((order.order_completed - order.order_approved) / 60000) === 1) { %>
                       <%= Math.round((order.order_completed - order.order_approved) / 60000); %> min
                     <% } else { %>
                       <%= Math.round((order.order_completed - order.order_approved) / 60000); %> mins
-                    <% } %>
+                    <% } %></strong>
                   </p>
                 </div>
               </div>
