@@ -4,9 +4,9 @@ body,
 html {
   margin: 0px;
   font-family: 'DM Sans', sans-serif;
-  background-image: url("/images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  // background-image: url("/images/background.jpg");
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,18 +24,23 @@ a {
   color: #f95738;
 }
 
-footer {
-  background-color: #f8f8f8;
-  color: #555;
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
-  border-top: 1px solid #ddd;
-  background-color: #eaeaec;
-  font-weight: bold;
+img {
+  max-width: 100%;
 }
 
-footer p {
-  margin: 0;
-  background-color: #eaeaec;
+main {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+footer .row {
+  padding-top: 2em;
+  padding-bottom: 1.5em;
 }

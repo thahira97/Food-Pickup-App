@@ -28,7 +28,6 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
-  <script src="/scripts/login_event.js"></script>
 </head>
 
 <body id="menu-page">
@@ -129,7 +128,7 @@
             <button type="button" class="btn btn-primary order-now-btn" id="total-button" data-client-id="<%= clientId %>">Order now • $0.00</button>
           <% } else { %>
             <div class="order-body">
-              <div class="alert alert-secondary" role="alert">Please <a href="http://localhost:8080/">log in</a> to place an order.</div>
+              <div class="alert alert-secondary" role="alert">Please log in to place an order.</div>
             </div>
           <% } %>
           <div class="alert alert-danger" role="alert" id="login-err">Please log in to place an order.</div>
@@ -140,5 +139,6 @@
     </div>
   </main>
 
+  <%- include('partials/_footer') %>
 </body>
 </html>
