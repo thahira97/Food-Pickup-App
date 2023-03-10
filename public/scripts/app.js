@@ -1,6 +1,6 @@
 // Client facing scripts here
 
-const { on } = require("nodemon");
+// const { on } = require("nodemon");
 
 // const markAsCompleteButton = [...document.querySelectorAll(".complete-btn")]
 // markAsCompleteButton.forEach(btn => {

@@ -38,4 +38,4 @@ const orderReady = function() {
   .then((message) => console.log(message.sid));
 };
 
-module.exports = {orderReady, orderCreated};
+module.exports = {orderReady, orderCreated, orderPlaced};

@@ -2,6 +2,7 @@
 require("dotenv").config();
 const db = require("./db/connection");
 const { addOrderListToDB } = require("./db/queries/menu_queries");
+
 // Web server config
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
@@ -68,7 +69,8 @@ app.post("/api/order", (req, res) => {
 
   addOrderListToDB(orderList, clientId).then((response) => {
     console.log(response);
-  });
+  })
+
 });
 
 app.post("/logout", (req, res) => {
