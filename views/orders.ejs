@@ -163,29 +163,29 @@
 
   </main>
 
+  <%- include('partials/_footer') %>
   <script>
     $(document).ready(function() {
 
       var count_incoming = document.getElementById('incoming').childElementCount;
       document.getElementById('incoming-header').innerHTML = 'Incoming Orders (' + count_incoming + ')';
       if (count_incoming === 0) {
-        document.getElementById('incoming').innerHTML = 'You have no incoming orders.';
+        document.getElementById('incoming').innerHTML = '<div class="col">You have no incoming orders.</div>';
       }
 
       var count_inprogress = document.getElementById('inprogress').childElementCount;
       document.getElementById('inprogress-header').innerHTML = 'Orders In Progress (' + count_inprogress + ')';
       if (count_inprogress === 0) {
-        document.getElementById('inprogress').innerHTML = 'You have no orders in progress.';
+        document.getElementById('inprogress').innerHTML = '<div class="col">You have no orders in progress.</div>';
       }
 
       var count_completed = document.getElementById('completed').childElementCount;
       document.getElementById('completed-header').innerHTML = 'Completed Orders (' + count_completed + ')';
       if (count_completed === 0) {
-        document.getElementById('completed').innerHTML = 'You have no completed orders.';
+        document.getElementById('completed').innerHTML = '<div class="col">You have no completed orders.</div>';
       }
 
     });
   </script>
-
 </body>
 </html>

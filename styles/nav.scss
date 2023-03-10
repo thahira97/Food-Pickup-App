@@ -1,87 +1,39 @@
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 15vh;
-  background-color: rgba(229, 207, 202, 0.854);
-  font-size: large;
-  position: fixed;
-  z-index: 1;
-}
-.left-header {
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- width: 80%;
- display: flex;
-//  padding-top: 10px;
-}
-.logo-img {
-  width: 10%;
-  justify-content: flex-start;
-}
-.nav-bar{
-  padding-top: 10px;
-  // padding-left: 30px;
-  display: flex;
-  width: 50%;
-  justify-content: space-evenly;
-}
-.nav-bar h3 {
-  cursor: pointer;
-
+a.nav-link {
+  color: #fff;
 }
 
-.right-header{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 1em;
+a.nav-link:hover {
+  color: #F95738;
 }
 
-.form-control{
-width: 200px;
-margin: 3px;
+.input-group #email {
+  margin-right: 1em;
+  border-radius: 12px;
 }
 
-.id{
-  margin: 2px;
-  display: none;
+.input-group .btn-primary {
+  border-radius: 12px !important;
+  background: #F95738;
+  border-color: #F95738;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.rounded-button {
-  width: 110px;
-  border-radius: 50px;
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.654);
-  color: white;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.input-group  .btn-primary:hover {
+  background: #D42907;
+  border-color: #D42907;
 }
 
-.rounded-button:hover {
-  background-color: black;
-}
-a {
-  color: black;
-  text-decoration: none;
-}
-a:visited {
-  color: inherit;
+nav .btn-primary-outline {
+  background: #fff;
+  color: #f95738;
+  border-color: #f95738;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-#form-style {
-  display: inline-flex;
-}
-
-#email {
-  border-radius: 10px;
-  height: 40px;
-  padding: 5px;
-  margin: 5px;
-  background-color: rgb(163 145 140);
-  border: 0px;
-  text-align: center;
+nav .btn-primary-outline:hover {
+  background: #D42907;
+  border-color: #D42907;
+  color: #fff;
 }
