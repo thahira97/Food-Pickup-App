@@ -59,6 +59,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
+                  <p class="est-time">Order placed: <strong><%= order.order_placed.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}) %></strong></p>
                   <p class="est-time">Enter estimated completion time:</p>
                   <form method="post" action="/orders">
                     <input type="hidden" name="order_id" value="<%= order.id %>" />
@@ -108,7 +109,8 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <p class="est-time">Estimated completion time: <strong><%= order.estimated_time %> mins</strong></p>
+                  <p class="est-time">Order placed: <strong><%= order.order_placed.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}) %></strong></p>
+                  <p class="est-time">Estimated completion time: <strong><%= order.order_placed.getHours() % 12 || 12 %>:<%= order.order_placed.getMinutes() + order.estimated_time %> <%= order.order_placed.getHours() < 12? 'AM' : 'PM'; %></strong></p>
                   <form method="post" action="/orders">
                     <input type="hidden" name="order_id" value="<%= order.id %>" />
                     <button type="submit" class="btn btn-primary complete-btn" name="complete" value="true">Mark as complete</button>
@@ -145,14 +147,8 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <p class="est-time">Estimated completion time: <strong><%= order.estimated_time %> mins</strong></p>
-                  <p class="act-time">Actual completion time:
-                    <strong><% if (Math.round((order.order_completed - order.order_approved) / 60000) === 1) { %>
-                      <%= Math.round((order.order_completed - order.order_approved) / 60000); %> min
-                    <% } else { %>
-                      <%= Math.round((order.order_completed - order.order_approved) / 60000); %> mins
-                    <% } %></strong>
-                  </p>
+                  <p class="est-time">Estimated completion time: <strong><%= order.order_placed.getHours() % 12 || 12 %>:<%= order.order_placed.getMinutes() + order.estimated_time %> <%= order.order_placed.getHours() < 12? 'AM' : 'PM'; %></strong></p>
+                  <p class="act-time">Actual completion time: <strong><%= order.order_placed.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}) %></strong></p>
                 </div>
               </div>
             </div>

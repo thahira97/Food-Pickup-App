@@ -5,15 +5,15 @@ const createOrderElement = function(orderItem) {
 
   let $order = `
   <div class="order-list-item">
-    <span class="order-item">
-     <i class="bi bi-${orderItem.quantity
-    }-circle-fill item-count" id="item-name"></i> ${orderItem.title}
-    </span>
-    <span class="order-price">
-     <span>$${parseFloat(orderItem.price).toFixed(2)}
-     </span>
-    </span>
-</div>`;
+    <div class="order-item">
+      <i class="bi bi-${orderItem.quantity
+      }-circle-fill item-count"></i> ${orderItem.title}
+    </div>
+    <div class="order-price">
+      <strong>$${(orderItem.price * orderItem.quantity).toFixed(2)}</strong>
+    </div>
+  </div>
+  `;
   return $order;
 };
 
@@ -37,13 +37,16 @@ const renderSummary = function(orderList) {
 
   if (orderList[0].order_approved !== null) {
     $(".pending").hide();
-    $(".estimate-container").slideDown();
+    $(".accepted").slideDown();
+    let pickupTime = new Date(orderList[0].order_approved);
+    pickupTime.setMinutes(pickupTime.getMinutes() + estimatedTime);
+    $("#pickup-time").text(pickupTime.toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}));
     $("#estimated-time").text(estimatedTime);
   }
 
   if (orderList[0].order_completed) {
     $(".pending").hide();
-    $(".estimate-container").hide();
+    $(".accepted").hide();
     $(".complete").slideDown();
   }
 

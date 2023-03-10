@@ -1,67 +1,17 @@
-main {
-  margin-top: 140px;
-  margin-bottom: 25px;
-  height: fit-content;
+#order-summary-page main {
+  margin-top: 4em;
+  margin-bottom: 4em;
 }
 
-h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  width: 100vw;
+.order-body {
+  padding-bottom: 0;
 }
 
-h6 {
-  font-size: 18px;
-  margin: 5px;
+.total {
+  margin-bottom: 0;
 }
 
-.order-content {
-  font-weight: 700;
-}
-
-.order-item {
-  margin: 0px;
-  padding: 5px;
-}
-
-.order-list-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 5px;
-}
-
-.total-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pick-up-location {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 400;
-}
-
-.estimate-container{
-display: none;
-text-align: center;
-}
-
-.pending{
+.pending, .accepted, .complete {
   display: none;
   text-align: center;
-}
-
-.complete{
-    display: none;
-    text-align: center;
-  }
-
-.bi-1-circle-fill {
-  font-size: 20px;
 }
