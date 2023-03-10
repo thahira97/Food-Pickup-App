@@ -38,7 +38,7 @@ router.post("/", function(req, res) {
   if (req.body.est_time) {
     approveOrder(req.body.order_id, req.body.est_time)
       .then((response) => {
-        sendsms.orderCreated();
+        sendsms.orderCreated(req.body.est_time);
         renderOrders(req, res);
       })
       .catch(err => {
@@ -55,7 +55,7 @@ router.post("/", function(req, res) {
   } else if (req.body.complete) {
     completeOrder(req.body.order_id)
       .then((response) => {
-        sendsms.orderReady();
+        sendsms.orderReady(req.body.order_id);
         renderOrders(req, res);
       })
       .catch(err => {

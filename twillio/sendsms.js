@@ -10,17 +10,17 @@ const client = require('twilio')(accountSid, authToken);
 const orderPlaced = function() {
   client.messages
   .create({
-    body: 'A new order has been placed',
-    to: process.env.CLIENT_PH_NUM, // Text this number
+    body: 'Hi there! A new order has been placed🍕🍕',
+    to: process.env.RESTAURANT_PH_NUM, // Text this number
     from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
   .then((message) => console.log(message.sid));
 };
 
-const orderCreated = function() {
+const orderCreated = function(estimated_time) {
   client.messages
   .create({
-    body: 'Your order is being prepared',
+    body: `Hi,Your order is being prepared.It will take ${estimated_time} minutes.`,
     to: process.env.CLIENT_PH_NUM, // Text this number
     from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
@@ -31,10 +31,10 @@ const orderCreated = function() {
 };
 
 
-const orderReady = function() {
+const orderReady = function(order_id) {
   client.messages
   .create({
-    body: 'your order is ready for pick up',
+    body: `Your order id is ${order_id} and is ready for pick up.Enjoy your food!❤️`,
     to: process.env.CLIENT_PH_NUM, // Text this number
     from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
