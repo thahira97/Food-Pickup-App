@@ -13,3 +13,6 @@ VALUES ('Charles', 'charles@gmail.com', '+16471233333');
 
 INSERT INTO clients (name, email, phone)
 VALUES ('Diana', 'diana@gmail.com', '+16471234444');
+
+INSERT INTO clients (name, email, phone)
+VALUES ('Thahira', 'thahira@gmail.com', '+16471235555');
