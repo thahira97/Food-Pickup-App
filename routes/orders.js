@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const { getOrders, approveOrder, rejectOrder, completeOrder } = require("../db/queries/orders");
+const sendsms = require('../twillio/sendsms');
 
 const reduceResponeObj = (obj) => {
   const out = obj.reduce((a, v) => {
@@ -37,6 +38,7 @@ router.post("/", function(req, res) {
   if (req.body.est_time) {
     approveOrder(req.body.order_id, req.body.est_time)
       .then((response) => {
+        sendsms.orderCreated();
         renderOrders(req, res);
       })
       .catch(err => {
@@ -53,6 +55,7 @@ router.post("/", function(req, res) {
   } else if (req.body.complete) {
     completeOrder(req.body.order_id)
       .then((response) => {
+        sendsms.orderReady();
         renderOrders(req, res);
       })
       .catch(err => {
@@ -65,6 +68,7 @@ router.post("/", function(req, res) {
   if (req.body.est_time) {
     approveOrder(req.body.order_id, req.body.est_time)
       .then((response) => {
+
         renderOrders(req, res);
       })
       .catch(err => {

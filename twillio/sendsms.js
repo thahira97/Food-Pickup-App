@@ -24,7 +24,10 @@ const orderCreated = function() {
     to: process.env.CLIENT_PH_NUM, // Text this number
     from: process.env.TWILLIO_PH_NUM, // From a valid Twilio number
   })
-  .then((message) => console.log(message.sid));
+    .then((message) => console.log(message.sid))
+    .catch(error => {
+      console.log(error);
+    })
 };
 
 

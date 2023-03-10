@@ -39,6 +39,7 @@ const menuRoutes = require("./routes/menu");
 const orderRoutes = require("./routes/orders");
 const loginRoutes = require("./routes/login");
 const orderSummaryRoutes = require('./routes/order-summary');
+const sendsms = require('./twillio/sendsms');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -68,6 +69,7 @@ app.post("/api/order", (req, res) => {
   const clientId = req.cookies.userId;
 
   addOrderListToDB(orderList, clientId).then((response) => {
+    sendsms.orderPlaced();
     console.log(response);
   })
 
