@@ -6,9 +6,10 @@ Maestro Pizza also updates its website with the latest order information, allowi
 Overall, Maestro Pizza provides a seamless ordering experience, thanks to its use of the latest technology and real-time updates.
 
 ## Home page
-
+![](/docs/Homepage.png)
 
 ## Menu page
+![](/docs/Menu%20page.png)
 
 
 ## Order-Summary page
@@ -25,7 +26,8 @@ When order is ready for pickup
 
 
 ## Restaurant page 
-
+![](/docs/Managing%20orders.png)
+![](/docs/Restaurant%20page.png)
 
 
 ## Project Setup
