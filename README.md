@@ -1,5 +1,32 @@
-LHL Node Skeleton
-=========
+Maestro Pizza
+Maestro Pizza is a food pickup app that allows customers to order pizza from their homes.
+The app uses Twilio to update customers and restaurants in real-time about the status of their orders.
+Customers receive updates via SMS or phone calls, while restaurants can manage their orders using the app.
+Maestro Pizza also updates its website with the latest order information, allowing customers to track their orders easily.
+Overall, Maestro Pizza provides a seamless ordering experience, thanks to its use of the latest technology and real-time updates.
+
+## Home page
+
+
+## Menu page
+
+
+## Order-Summary page
+
+After ordering, the website updates user with status of the orders in every steps
+
+![](/docs/Order-summary%20page.png)
+
+When order is accepted
+![](/docs/Order%20acceptance.png)
+
+When order is ready for pickup
+![](/docs/Order%20Ready.png)
+
+
+## Restaurant page 
+
+
 
 ## Project Setup
 
